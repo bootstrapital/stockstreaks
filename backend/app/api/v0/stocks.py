@@ -7,13 +7,19 @@ Needs:
 
 import os
 import json
+from datetime import datetime, timedelta
+
 import requests
 
-from datetime import datetime, timedelta
 from fastapi import APIRouter
 from .database import create_daily, get_streaks
 
 router = APIRouter()
+
+
+@router.get('/stocks/test', status_code=200)
+def hello_world():
+    return {'hello': 'world'}
 
 
 @router.get('/stocks/{symbol}/prices', status_code=200)

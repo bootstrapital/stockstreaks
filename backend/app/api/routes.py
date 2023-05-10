@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter
 
 from api.v0 import stocks
