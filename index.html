@@ -51,14 +51,38 @@
     </div>
 
     <script>
-      const data = {
+
+      let requestJson;
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      
+      const requestOptions = {
+        method: 'GET',
+        headers: headers,
+      };
+      
+      fetch('http://127.0.0.1:8000/local-test', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          // Process the response data
+          let responseJson = data
+          console.log(responseJson);
+        })
+        .catch(error => {
+          // Handle any errors
+          console.error(error);
+        });
+      
+      let vals1 = responseJson['data'][0]['values']
+      console.log('second print', responseJson)
+      let data = {
         labels: ["12am-3am", "3am-6pm", "6am-9am", "9am-12am",
           "12pm-3pm", "3pm-6pm", "6pm-9pm", "9am-12am"
         ],
         datasets: [{
             name: "Some Data",
             type: "bar",
-            values: [25, 40, 30, 35, 8, 52, 17, -4]
+            values: vals1
           },
           {
             name: "Another Set",
@@ -67,7 +91,7 @@
           }
         ]
       }
-
+      
       const chart = new frappe.Chart("#chart", { // or a DOM element,
         // new Chart() in case of ES6 module with above usage
         title: "My Awesome Chart",
