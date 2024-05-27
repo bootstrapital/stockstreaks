@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: db
+    database: data
+    schema: main
+    description: Daily stock data
+
+    tables:
+      - name: test_aapl
+        description: CSV import from Yahoo; Contains data from Jan 1 2019 to Mar 1 2024
+
+      - name: history
+        description: Historical stock data
