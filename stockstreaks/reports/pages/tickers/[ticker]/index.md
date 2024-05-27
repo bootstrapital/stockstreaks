@@ -68,7 +68,7 @@ select
         else 'up'
     end as direction
 from stockstreaks.dailies
-where ticker = '${params.symbol}'
+where ticker = '${params.ticker}'
 order by 2 desc
 limit 90
 ```
