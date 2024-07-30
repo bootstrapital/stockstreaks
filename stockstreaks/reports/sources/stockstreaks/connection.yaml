@@ -1,6 +1,0 @@
-name: stockstreaks
-type: duckdb
-options:
-  filename: ../../../data/data.duckdb
-
-  
