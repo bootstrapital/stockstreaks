@@ -5,11 +5,18 @@
 	export let data;
 </script>
 
-<EvidenceDefaultLayout {data} 
-    hideSidebar={true} 
+<EvidenceDefaultLayout {data}>
+
+	title="Stock Streaks"
+	logo="static/stockstreaks-bars-logo.png"
+	neverShowQueries={false}
+	maxWidth={1280}
+	fullWidth={false}
+	hideSidebar={false} 
     hideHeader={true}
-    hideTOC={true}
-    hideBreadcrumbs={true}
->
+    hideBreadcrumbs={false}
+	hideTOC={false}
+	builtWithEvidence={false}
+
 	<slot slot="content" />
 </EvidenceDefaultLayout>
