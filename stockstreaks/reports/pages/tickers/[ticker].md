@@ -1,7 +1,5 @@
 ---
-sidebar_position: 1
 title: A Stock Page
-hide_title: true
 ---
 
 # Report for { params.ticker.toUpperCase() }
