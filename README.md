@@ -36,3 +36,6 @@ Some other useful commands:
 - Run `dbt test` to run the tests (TBD)
 - Run `dbt docs generate` to generate the transformation documentation
 - Run `dbt docs serve` to serve the model documentation locally (will be useful once architeture evolves)
+
+## Note:
+- The idea is to do an Evidence build then copy the diretory to `admin/static/content` so that it can be served by the Flask app under authentication.
