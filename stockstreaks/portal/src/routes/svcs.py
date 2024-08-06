@@ -1,7 +1,7 @@
 from flask import Blueprint, send_from_directory
 
 
-# Auth routes
+# Auth routes (Kinde)
 sevices_bp = Blueprint(
         'svcs',
         __name__, 

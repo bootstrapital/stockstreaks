@@ -13,13 +13,13 @@ def create_app():
     app.register_blueprint(ev_data_bp)
     app.register_blueprint(sevices_bp)
 
-    # app.config.from_object("config")
+    app.config.from_object('config')
 
-    @app.route("/")
+    @app.route('/')
     def route_index():
         return 'This is the index route'
     
-    @app.route("/<path:path>")
+    @app.route('/<path:path>')
     def route_root(path):
         print('===================================================================')
         if path.endswith('.png') or path.endswith('.ico'):
