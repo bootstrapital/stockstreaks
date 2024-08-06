@@ -5,4 +5,5 @@ logs/
 .venv/
 env/
 test.env
+.env
 __pycache__
