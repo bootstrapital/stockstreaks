@@ -14,10 +14,9 @@ with source as (
         "Close" as close,
         "Volume" as volume,
         "Dividends" as dividends,
-        "Stock Splits" as split,
-        "Capital Gains" as capital_gains
+        "Stock Splits" as stock_splits,
     
-    from {{ source('db', 'history') }}
+    from {{ source('history', 'daily') }}
 
 )
 

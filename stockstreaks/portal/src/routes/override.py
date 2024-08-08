@@ -1,7 +1,7 @@
-from flask import Blueprint, send_from_directory
+from flask import Blueprint, redirect, send_from_directory
 
 
-# API files
+# ===== API files =====
 ev_api_bp = Blueprint(
         'ev_api',
         __name__, 
@@ -16,12 +16,15 @@ def serve_evidence_static(path):
     print('===================================================================')
 
     if 'null' in path:
-        return send_from_directory(ev_api_bp.static_folder, path.replace('/null', ''))
+        print('===== Tryting to fix the null =====')
+        print(f'{ev_api_bp.static_folder}')
+        return send_from_directory(f'{ev_api_bp.static_folder}', 'evidencemeta.json')
     
     return send_from_directory(ev_api_bp.static_folder, path)
+# ------------------------------------------------------------------------------
 
 
-# Data files
+# ===== Data files =====
 ev_data_bp = Blueprint(
         'ev_data',
         __name__, 
@@ -35,3 +38,4 @@ def serve_evidence_data(path):
     print(f'{ev_data_bp.static_folder}/{path}')
     print('===================================================================')
     return send_from_directory(ev_data_bp.static_folder, path)
+# ------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-from flask import Blueprint, send_from_directory
+from flask import Blueprint, redirect, send_from_directory
 
 
 report_bp = Blueprint(
@@ -15,7 +15,20 @@ def serve_evidence_app():
 @report_bp.route('/<path:path>')
 def serve_evidence_static(path):
 
-    if 'tickers' in path:
+    if path.endswith('png') or path.endswith('.ico') or path.endswith('icon.svg'):
+        print('=================================================================== images')
+        print(f'{report_bp.static_folder}/{path}')
+        return send_from_directory(f'{report_bp.static_folder}', path)
+
+    if path.endswith('tickers'):
+        return redirect(f'/report/tickers/')
+
+    elif path.endswith('tickers/'):
+        print('=================================================================== tickers')
+        print(f'{report_bp.static_folder}/{path}')
+        return send_from_directory(f'{report_bp.static_folder}/{path}', 'index.html')
+    
+    elif 'tickers' in path:
         return send_from_directory(f'{report_bp.static_folder}/{path}', 'index.html')
 
     return send_from_directory(report_bp.static_folder, path)
