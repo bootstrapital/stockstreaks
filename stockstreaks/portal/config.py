@@ -2,11 +2,11 @@ import base64
 import os
 import secrets
 
-from kinde_sdk.kinde_api_client import GrantType
 from dotenv import load_dotenv
+from kinde_sdk.kinde_api_client import GrantType
 
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 
 def generate_code_verifier(length=46):
     token = secrets.token_bytes(length)
