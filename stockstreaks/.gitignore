@@ -6,3 +6,10 @@ logs/
 env/
 test.env
 __pycache__
+
+# Ignore parquet files -- we will push to b2 cloud
+*.parquet
+
+# Ignore duckdb files -- we will build at runtime
+*.duckdb
+*.duckdb.wal

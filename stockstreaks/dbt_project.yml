@@ -33,5 +33,13 @@ clean-targets:
 # files using the `{{ config(...) }}` macro.
 models:
   stockstreaks:
-    +materialized: table
+    # schema is set in ~/.dbt/profiles.yml file 
+    # duckdb defaults to `main` so it prepends to any schema defined here
+    # defined in profiles as `schema: price_calcs`
+
+    staging:
+      +materialized: table
+    intermediate:
+      +materialized: table
+
 

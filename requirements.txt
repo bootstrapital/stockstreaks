@@ -1,3 +1,14 @@
+# Data
+b2sdk
 dbt-duckdb
 pandas
+pyarrow
 yfinance
+
+
+# Admin
+Flask~=3.0.0
+Flask-Session~=0.5.0
+kinde-python-sdk==1.2.6
+python-dotenv
+Werkzeug~=3.0.0
