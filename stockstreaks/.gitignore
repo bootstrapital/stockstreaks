@@ -12,3 +12,4 @@ __pycache__
 
 # Ignore duckdb files -- we will build at runtime
 *.duckdb
+*.duckdb.wal
