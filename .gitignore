@@ -7,3 +7,6 @@ env/
 test.env
 .env
 __pycache__
+
+# DuckDB session files
+*.session.sql

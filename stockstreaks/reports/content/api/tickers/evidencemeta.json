@@ -1,0 +1,1 @@
+{"queries":[{"id":"ticker_list","compiledQueryString":"select distinct upper(ticker) as symbol\n    from strk.last_200d\n    order by ticker","inputQueryString":"select distinct upper(ticker) as symbol\n    from strk.last_200d\n    order by ticker","compiled":false,"inline":true}]}

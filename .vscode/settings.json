@@ -5,5 +5,16 @@
         "comments": false,
         "strings": false
     },
-    "editor.quickSuggestionsDelay": 300
+    "editor.quickSuggestionsDelay": 300,
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "name": "DuckDB",
+            "accessMode": "Read Only",
+            "previewLimit": 10,
+            "driver": "DuckDB",
+            "databaseFilePath": "/Users/datadavis/Documents/GitHub/stockstreaks/stockstreaks/data/strk.duckdb",
+            "group": "stockstreaks"
+        }
+    ]
 }
