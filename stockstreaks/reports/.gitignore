@@ -1,6 +1,7 @@
 .evidence/template
 .svelte-kit
 build
+content
 node_modules
 .DS_Store
 static/data
