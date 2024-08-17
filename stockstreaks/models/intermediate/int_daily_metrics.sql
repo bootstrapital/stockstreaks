@@ -88,6 +88,8 @@ with base_metrics as (
 
     from {{ ref('stg_daily_prices') }}
 
+    where calendar_dt >= '2022-01-01'
+
     order by ticker, calendar_dt desc
 
 )

@@ -7,13 +7,5 @@
     },
     "editor.quickSuggestionsDelay": 300,
     "sqltools.useNodeRuntime": true,
-    "sqltools.connections": [
-        {
-            "name": "strk",
-            "accessMode": "Read Only",
-            "previewLimit": 50,
-            "driver": "DuckDB",
-            "databaseFilePath": "/Users/datadavis/Documents/GitHub/stockstreaks/stockstreaks/data/strk.duckdb"
-        }
-    ]
+    "sqltools.connections": []
 }

@@ -8,6 +8,7 @@ test.env
 __pycache__
 
 # Ignore parquet files -- we will push to b2 cloud
+./data/daily_history/
 *.parquet
 
 # Ignore duckdb files -- we will build at runtime

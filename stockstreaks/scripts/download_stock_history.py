@@ -26,11 +26,19 @@ bucket = b2_api.get_bucket_by_name(bucket_name)
 symbols_df = pd.read_csv('../data/biggest-companies-stocks.csv')
 symbols_list = symbols_df['Symbol'].to_list()
 
+print(f'Downloading {len(symbols_list)} stocks from yfinance')
+print('======================================================================')
+
 for i, symbol in enumerate(symbols_list):
     ticker = yfinance.Ticker(symbol)
     df = ticker.history(period='max')
     df.reset_index(inplace=True)
     df['Ticker'] = symbol
+
+    # Save to local parquet file
+    df.to_parquet(f'../data/daily_history/{symbol}.parquet')
+
+    print(f'Saved {symbol} to local parquet file')
 
     # Convert DataFrame to PyArrow Table
     table = pa.Table.from_pandas(df)
@@ -46,4 +54,5 @@ for i, symbol in enumerate(symbols_list):
 
     print(f'Processed and uploaded {i+1} of {len(symbols_list)}: {symbol}')
 
+print('======================================================================')
 print("All Parquet files have been uploaded to Backblaze B2.")

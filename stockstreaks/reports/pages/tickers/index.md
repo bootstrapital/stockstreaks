@@ -4,7 +4,7 @@ title: Ticker Index
 
 ```sql ticker_list
     select distinct upper(ticker) as symbol
-    from strk.last_200d
+    from strk.strk.unique_tickers
     order by ticker
 ```
 
