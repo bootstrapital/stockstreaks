@@ -9,12 +9,11 @@
     "sqltools.useNodeRuntime": true,
     "sqltools.connections": [
         {
-            "name": "DuckDB",
+            "name": "strk",
             "accessMode": "Read Only",
-            "previewLimit": 10,
+            "previewLimit": 50,
             "driver": "DuckDB",
-            "databaseFilePath": "/Users/datadavis/Documents/GitHub/stockstreaks/stockstreaks/data/strk.duckdb",
-            "group": "stockstreaks"
+            "databaseFilePath": "/Users/datadavis/Documents/GitHub/stockstreaks/stockstreaks/data/strk.duckdb"
         }
     ]
 }
