@@ -39,6 +39,8 @@ con.execute('CREATE SCHEMA IF NOT EXISTS price_history')
 # Drop the existing table if it exists
 con.execute('DROP TABLE IF EXISTS price_history.daily')
 
+print("Creating price_history.daily table from Parquet files in B2.")
+
 # Create the table from Parquet files in B2
 query = f"""
 CREATE TABLE price_history.daily AS 
