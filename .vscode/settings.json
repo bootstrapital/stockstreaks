@@ -1,11 +1,19 @@
 {
-    "editor.acceptSuggestionOnEnter": true,
+    "editor.acceptSuggestionOnEnter": false,
     "editor.quickSuggestions": {
-        "other": false,
+        "other": true,
         "comments": false,
         "strings": false
     },
-    "editor.quickSuggestionsDelay": 300,
+    "editor.quickSuggestionsDelay": 0,
     "sqltools.useNodeRuntime": true,
-    "sqltools.connections": []
+    "sqltools.connections": [
+        {
+            "name": "DuckDB",
+            "accessMode": "Read Only",
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "databaseFilePath": "/Users/datadavis/Documents/GitHub/stockstreaks/stockstreaks/data/strk.duckdb"
+        }
+    ]
 }
