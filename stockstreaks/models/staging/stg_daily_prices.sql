@@ -3,11 +3,15 @@ with source as (
     select
         -- Update column names
         lower("Ticker") as ticker
-        , "Date" as calendar_date
+
+        -- Evidence converts to UTC which results in DATE fields being off by 1 day
+        -- So we're adding 9 hours to the UTC timestamp so it computes correctly
+        -- See: https://github.com/evidence-dev/evidence/issues/1652
+        , "Date"::timestamp - interval '4 hour' as calendar_date
 
         -- Evidence converts to UTC which results in DATE fields being off by 1 day
         -- See: https://github.com/evidence-dev/evidence/issues/1652
-        , date_add("Date", interval 1 day) as display_date
+        , date_add("Date"::timestamp + interval '4 hour', interval 1 day) as display_date
 
         , "Open" as open
         , "High" as high
