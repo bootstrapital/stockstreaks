@@ -41,8 +41,7 @@ con.execute('DROP TABLE IF EXISTS price_history.daily')
 
 # Create the table from Parquet files in B2
 query = f"""
-CREATE TABLE price_history.daily AS 
-SELECT * FROM read_parquet('s3://{bucket_name}/daily_history/*.parquet')
+CREATE TABLE price_history.daily AS FROM read_parquet('s3://{bucket_name}/daily_history/*.parquet')
 """
 
 try:
