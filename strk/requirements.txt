@@ -1,5 +1,0 @@
-Flask
-Gunicorn
-dlt
-sqlmesh[duckdb] # or sqlmesh with specific duckdb version
-# Add other dependencies as needed e.g., requests, pandas
