@@ -1,0 +1,319 @@
+/* static/css/style.css */
+body {
+    font-family: 'Inter', sans-serif; /* [cite: 96] */
+    background-color: #111827; /* [cite: 93] */
+    color: #D1D5DB; /* [cite: 94] */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* --- Global Header / Navigation --- */
+.global-header {
+    background-color: #1F2937; /* Card color as header bg */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #374151;
+}
+
+.logo a {
+    color: #D1D5DB;
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.logo .streaks-accent {
+    color: #10B981; /* Emerald Green [cite: 94] */
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 20px;
+}
+
+.main-nav a {
+    color: #D1D5DB;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+    background-color: #374151; /* Darker accent for hover/active */
+    color: #FFFFFF;
+}
+
+.hamburger-menu {
+    display: none; /* Hidden on larger screens */
+    font-size: 1.5rem;
+    color: #D1D5DB;
+    cursor: pointer;
+}
+
+/* --- Global Footer --- */
+.global-footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    background-color: #1F2937; /* [cite: 93] */
+    color: #9CA3AF; /* Subtler text for footer */
+    font-size: 0.9em;
+    border-top: 1px solid #374151;
+}
+
+/* --- Cards --- */
+.card {
+    background-color: #1F2937; /* [cite: 93] */
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.card-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #E5E7EB;
+}
+
+/* --- Colors for Streaks & Changes --- */
+.text-positive { color: #10B981; } /* [cite: 94] */
+.text-negative { color: #EF4444; } /* [cite: 95] */
+.text-neutral { color: #6B7280; } /* [cite: 95] */
+.text-informational { color: #3B82F6; } /* Example Blue [cite: 96] */
+
+.bg-positive-faded { background-color: rgba(16, 185, 129, 0.1); } /* [cite: 94] */
+.bg-negative-faded { background-color: rgba(239, 68, 68, 0.1); } /* [cite: 95] */
+
+
+/* --- Home Page Specifics --- */
+.home-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Main content and sidebar */
+    gap: 2rem;
+}
+
+.main-content-area {
+    /* styles for left panel */
+}
+.sidebar-area {
+    /* styles for right panel */
+}
+
+/* Market Snapshot & Notable Streaks Item */
+.snapshot-item, .notable-streak-item {
+    /* padding: 1rem; */
+    /* border: 1px solid #374151; */
+    /* border-radius: 6px; */
+    /* margin-bottom: 1rem; */
+    display: flex;
+    flex-direction: column;
+}
+
+.snapshot-item h3, .notable-streak-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1em;
+}
+.snapshot-item .ticker-symbol, .notable-streak-item .ticker-symbol {
+    font-size: 0.9em;
+    color: #9CA3AF;
+    margin-bottom: 0.5rem;
+}
+.price-change { margin-bottom: 0.5rem; }
+
+.streak-badge {
+    display: inline-block;
+    padding: 0.25em 0.6em;
+    border-radius: 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+.streak-badge.win { background-color: #10B981; }
+.streak-badge.loss { background-color: #EF4444; }
+.streak-badge.neutral { background-color: #6B7280; }
+
+.uptime-bar {
+    display: flex;
+    gap: 2px; /* Small gap between squares */
+    height: 15px; /* Height of the bar */
+    margin-bottom: 0.5rem;
+}
+.uptime-bar .day-square {
+    flex-grow: 1; /* Each square takes equal width */
+    height: 100%;
+    /* border-radius: 1px; */ /* Slightly rounded squares */
+}
+.day-square.win { background-color: #10B981; } /* [cite: 28] */
+.day-square.loss { background-color: #EF4444; } /* [cite: 28] */
+.day-square.neutral { background-color: #6B7280; } /* [cite: 28] */
+
+.aggregate-streak-performance {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* Ticker Search Bar */
+.ticker-search-bar {
+    margin-bottom: 1.5rem;
+    display: flex;
+}
+.ticker-search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #374151;
+    border-radius: 4px 0 0 4px;
+    background-color: #1F2937;
+    color: #D1D5DB;
+    font-size: 1em;
+}
+.ticker-search-bar button {
+    padding: 0.75rem 1rem;
+    border: 1px solid #374151;
+    border-left: none;
+    background-color: #3B82F6; /* Blue for search button */
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 1em;
+}
+.ticker-search-bar button:hover {
+    background-color: #2563EB;
+}
+
+/* --- Ticker Detail Page Specifics --- */
+.ticker-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #374151;
+}
+.ticker-detail-header .app-logo { /* If you want a smaller logo here */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.ticker-info .symbol {
+    font-size: 2em;
+    font-weight: bold;
+}
+.ticker-info .price {
+    font-size: 1.2em;
+    margin-bottom: 0.25rem;
+}
+.ticker-info .last-updated {
+    font-size: 0.8em;
+    color: #9CA3AF;
+}
+
+.summary-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.summary-card .value {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+.summary-card .sub-detail {
+    font-size: 0.9em;
+    color: #9CA3AF;
+}
+
+/* Price Performance Chart & Recent Streak History Table */
+#pricePerformanceChart {
+    /* Ensure canvas resizes correctly */
+    max-width: 100%;
+    /* height: auto !important; */ /* Let chart.js handle height if possible or set fixed */
+}
+
+.streak-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+.streak-history-table th, .streak-history-table td {
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 1px solid #374151;
+}
+.streak-history-table th {
+    background-color: #374151; /* Slightly different header for table */
+    color: #E5E7EB;
+    font-weight: bold;
+}
+.streak-history-table tbody tr:nth-child(even) {
+    background-color: #2c3645; /* Alternating row color [cite: 73] */
+}
+.streak-history-table tbody tr:hover {
+    background-color: #3b4658;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .home-grid {
+        grid-template-columns: 1fr; /* Stack main content and sidebar */
+    }
+
+    .main-nav ul {
+        display: none; /* Hide nav links by default */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background-color: #1F2937;
+        z-index: 1000;
+    }
+    .main-nav ul.active {
+        display: flex; /* Show when hamburger is clicked */
+    }
+    .main-nav li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .main-nav a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #374151;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+
+    .summary-cards-grid {
+        grid-template-columns: 1fr; /* Single column for summary cards */
+    }
+    .ticker-detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .ticker-detail-header .app-logo { margin-bottom: 1rem; }
+}
+

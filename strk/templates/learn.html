@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Learn About Streaks - StockStreaks{% endblock %}
+
+{% block content %}
+<div class="learn-page card">
+    <h1>Understanding Stock Streaks</h1>
+    <p>This page will provide educational content about stock streaks, how to interpret them, and their potential role in market analysis. (Content TBD)</p>
+    
+    <h2>What is a Winning Streak?</h2>
+    <p>A winning streak occurs when a stock's closing price increases for multiple consecutive days. [cite: 77] For example, if a stock closes higher on Monday, Tuesday, and Wednesday compared to each previous day, it's on a 3-day winning streak.</p>
+
+    <h2>What is a Losing Streak?</h2>
+    <p>Conversely, a losing streak happens when a stock's closing price decreases for multiple consecutive days. [cite: 78]</p>
+
+    <h2>Neutral Days</h2>
+    <p>A neutral day occurs if the closing price is exactly the same as the previous day's closing price. [cite: 79] These typically break a streak or are ignored in simple streak counts, depending on the definition.</p>
+
+    <h2>Why Pay Attention to Streaks?</h2>
+    <ul>
+        <li><strong>Momentum Indication:</strong> Streaks can sometimes indicate market momentum or investor sentiment towards a particular stock or index.</li>
+        <li><strong>Pattern Recognition:</strong> Some traders look for patterns in streaks or the end of streaks as potential signals.</li>
+        <li><strong>Behavioral Finance:</strong> Streaks can sometimes be influenced by behavioral factors in the market.</li>
+    </ul>
+
+    <h2>Important Considerations</h2>
+    <p><strong>Past performance is not indicative of future results.</strong> Stock streaks are historical observations and do not guarantee future price movements. Always use streak data as one of many tools in your investment analysis and consider your own risk tolerance.</p>
+    <p><em>This information is for educational purposes only and is not financial advice.</em></p> <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</div>
+{% endblock %}

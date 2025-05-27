@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block title %}Home - StockStreaks{% endblock %}
+
+{% block content %}
+<div class="ticker-search-bar card"> <form id="tickerSearchForm" action="#" method="get"> <input type="text" id="tickerSearchInput" placeholder="Search for a stock ticker (e.g., AAPL, TSLA)"> <button type="submit"><i class="fas fa-search"></i></button> </form>
+</div>
+
+<div class="home-grid">
+    <div class="main-content-area">
+        <section class="market-snapshot-section card"> <h2 class="card-title">Market Snapshot</h2>
+            {% if market_indices %}
+                {% for index in market_indices %}
+                <div class="snapshot-item card {% if index.streakType == 'Win' %}bg-positive-faded{% elif index.streakType == 'Loss' %}bg-negative-faded{% endif %}"> <a href="{{ url_for('ticker_detail', symbol=index.symbol) }}" style="text-decoration: none; color: inherit;"> <h3>{{ index.name }} <span class="ticker-symbol">({{ index.symbol }})</span></h3> <p class="price-change {% if index.dailyChangePercent.startswith('+') %}text-positive{% elif index.dailyChangePercent.startswith('-') %}text-negative{% else %}text-neutral{% endif %}">
+                            {{ index.currentPrice }} ({{ index.dailyChange }}, {{ index.dailyChangePercent }}) </p>
+                        <span class="streak-badge {% if index.streakType == 'Win' %}win{% elif index.streakType == 'Loss' %}loss{% else %}neutral{% endif %}">
+                            {{ index.streakType }} {{ index.streakDuration }}D </span>
+                        <div class="uptime-bar"> {% for day_status in index.recentDays %} {# Assumes recentDays is oldest to newest, display L to R [cite: 27] #}
+                            <div class="day-square {{ day_status.lower() }}"></div> {% endfor %}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Market snapshot data is currently unavailable.</p>
+            {% endif %}
+        </section>
+
+        <section class="notable-market-streaks-section card"> <h2 class="card-title">Notable Market Streaks</h2>
+            <div class="scrollable-list" style="max-height: 40rem; overflow-y: auto;"> {% if notable_streaks %}
+                {% for stock in notable_streaks %}
+                <div class="notable-streak-item card {% if stock.streakType == 'Win' %}bg-positive-faded{% elif stock.streakType == 'Loss' %}bg-negative-faded{% endif %}"> <a href="{{ url_for('ticker_detail', symbol=stock.symbol) }}" style="text-decoration: none; color: inherit;"> <h3>
+                            {{ stock.symbol }} {% if stock.specialIndicators %}
+                                {% for indicator in stock.specialIndicators %}
+                                <span class="special-indicator-badge">{{ indicator }}</span> {% endfor %}
+                            {% endif %}
+                        </h3>
+                        <p class="company-name" style="font-size:0.9em; color: #9CA3AF;">{{ stock.companyName }}</p> <p class="price-change {% if stock.dailyChangePercent.startswith('+') %}text-positive{% elif stock.dailyChangePercent.startswith('-') %}text-negative{% else %}text-neutral{% endif %}">
+                            {{ stock.currentPrice }} ({{ stock.dailyChange }}, {{ stock.dailyChangePercent }}) </p>
+                        <span class="streak-badge {% if stock.streakType == 'Win' %}win{% elif stock.streakType == 'Loss' %}loss{% else %}neutral{% endif %}">
+                            {{ stock.streakType }} {{ stock.streakDuration }}D </span>
+                        <div class="uptime-bar"> {% for day_status in stock.recentDays %} {# Assumes recentDays is oldest to newest, display L to R #}
+                            <div class="day-square {{ day_status.lower() }}"></div>
+                            {% endfor %}
+                        </div>
+                        <p class="aggregate-streak-performance {% if stock.streakType == 'Win' %}text-positive{% elif stock.streakType == 'Loss' %}text-negative{% endif %}">
+                            {{ stock.streakPercentageChange }} in current streak </p>
+                    </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Notable streaks data is currently unavailable.</p>
+            {% endif %}
+            </div>
+        </section>
+    </div>
+
+    <aside class="sidebar-area">
+        <section class="sponsored-platforms-section card"> <h2 class="card-title">Sponsored Platforms</h2> <div class="ad-placeholder" style="border: 1px dashed #6B7280; padding: 20px; text-align: center; margin-bottom:1rem;">Ad Space 1</div> <div class="ad-placeholder" style="border: 1px dashed #6B7280; padding: 20px; text-align: center;">Ad Space 2</div> </section>
+
+        <section class="learn-more-section card"> <h2 class="card-title">Learn More</h2>
+            <a href="{{ url_for('learn') }}" class="learn-more-link" style="display:block; padding:10px; background-color:#3B82F6; color:white; text-decoration:none; border-radius:4px; text-align:center;"> <i class="fas fa-lightbulb"></i> Understanding Streaks <p style="font-size:0.8em; margin-top:5px;">Our guide to trading with streaks.</p> </a>
+        </section>
+    </aside>
+</div>
+{% endblock %}
+
+{% block scripts_extra %}
+<script>
+    // Pass current year to layout for footer (if not already available globally in Flask context)
+    // This can also be done via app.context_processor in app.py
+    // For simplicity here, if layout.html's {{ current_year }} isn't working,
+    // you might need to pass it from Flask to each template or use a context processor.
+    // Flask context processor example for current_year:
+    // @app.context_processor
+    // def inject_current_year():
+    //     from datetime import datetime
+    //     return {'current_year': datetime.utcnow().year}
+</script>
+{% endblock %}

@@ -1,0 +1,18 @@
+# pipeline/config/pipeline_config.yml
+# Placeholder for pipeline specific configurations
+# For example, list of tickers to process, API endpoints (not keys!), etc.
+
+tickers_to_track:
+  - AAPL
+  # - MSFT
+  # - GOOGL
+  # - TSLA
+  # - AMZN
+
+indices_to_track:
+  - SPY # S&P 500 ETF
+  - QQQ # Nasdaq 100 ETF
+  # - DIA # Dow Jones ETF
+
+# data_source_api_url: "https://your.stock.api/v1" # API URL, not keys
+# api_retry_attempts: 3

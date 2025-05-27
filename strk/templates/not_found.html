@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block title %}Ticker Not Found - StockStreaks{% endblock %}
+
+{% block content %}
+<div class="not-found-page card" style="text-align: center; padding: 40px;">
+    <h1>Ticker Not Found</h1>
+    <p>Sorry, we could not find any data for the ticker symbol: <strong>{{ symbol }}</strong>.</p> <p>Please check the symbol and try again, or <a href="{{ url_for('home') }}">return to the homepage</a>.</p>
+</div>
+{% endblock %}
