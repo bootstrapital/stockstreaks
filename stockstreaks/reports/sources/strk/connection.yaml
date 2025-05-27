@@ -1,5 +1,0 @@
-# This file was automatically generated
-name: strk
-type: duckdb
-options:
-  filename: strk.duckdb
